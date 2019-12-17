@@ -85,10 +85,10 @@ class AdminArticleController extends Controller
                 $article->a_active = $article->a_active ? 0 : 1;
                 $article->save();
                 break;
-            // case 'hot':
-            //     $article->a_hot = $article->a_hot ? 0 : 1;
-            //     $article->save();
-            //     break;
+             case 'hot':
+                 $article->a_hot = $article->a_hot ? 0 : 1;
+                 $article->save();
+                 break;
             default:
                 // code...
                 break;

@@ -16,7 +16,9 @@ class ArticleController extends FrontendController
     {
         $articles = Article::simplePaginate(5);
 
-        return view('article.index', compact('articles'));
+        $articleHot = Article::where('a_hot', Article::HOT)->get();
+
+        return view('article.index', compact('articles', 'articleHot'));
     }
 
     public function getDetailArticle(Request $request)
@@ -29,10 +31,12 @@ class ArticleController extends FrontendController
         {
             $articleDetail = Article::find($id);
             $articles = Article::paginate(1);
+            $articleHot = Article::where('a_hot', Article::HOT)->get();
 
             $viewData = [
                 'articles' => $articles,
-                'articleDetail' => $articleDetail
+                'articleDetail' => $articleDetail,
+                'articleHot' => $articleHot,
             ];
 
             return view('article.detail', $viewData);

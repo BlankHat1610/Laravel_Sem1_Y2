@@ -12,6 +12,7 @@
     <title>Trang chủ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon
     ============================================ -->
@@ -84,6 +85,12 @@
     <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
 <body class="home-one">
+@if(get_data_user('web','active') == 1)
+    <div class="alert alert-danger" style="position: fixed; left: 0;z-index: 1;">
+        <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Tài khoản của bạn chưa được kích hoạt. Hãy check địa chỉ email của bạn để kích hoạt tài khoản</strong> {{ \Session::get('danger') }} &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+@endif
 <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -92,8 +99,25 @@
 <!-- header area start -->
 
 <!-- header area end -->
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="z-index: 1;">
+    @if(\Session::has('success'))
+        <div class="alert alert-success" style="position: fixed; right: 20px;">
+            <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Thành công! </strong> {{ \Session::get('success') }} &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    @endif
+
+    @if(\Session::has('danger'))
+        <div class="alert alert-danger" style="position: fixed; right: 0;">
+            <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Thất bại! </strong> {{ \Session::get('danger') }} &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    @endif
+
+</div>
 @include('components.header')
 <!-- header area end -->
+
 @yield('content')
 <!-- FOOTER START -->
 @include('components.footer')
@@ -151,5 +175,7 @@
 <!-- main js
 ============================================ -->
 <script src="{{asset('js/main.js')}}"></script>
+
+@yield('script')
 </body>
 </html>

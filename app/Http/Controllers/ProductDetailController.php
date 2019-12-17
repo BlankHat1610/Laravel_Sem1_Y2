@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductDetailController extends FrontendController
 {
@@ -24,12 +25,46 @@ class ProductDetailController extends FrontendController
 
             $cateProduct = Category::find($productDetail->pro_category_id);
 
-            $ratings = Rating::with('user:id,name')->where('ra_product_id', $id)->orderBy('id', 'DESC')->paginate(10);
+            $ratings = Rating::with('user:id,name')
+                ->where('ra_product_id', $id)
+                ->orderBy('id', 'DESC')
+                ->paginate(10);
+
+            // gom nhom tinh tong
+            $ratingsDashboard = Rating::groupBy('ra_number')
+                ->where('ra_product_id',$id)
+                ->select(DB::raw('count(ra_number) as total'),DB::raw('sum(ra_number) as sum'))
+                ->addSelect('ra_number')
+                ->get()->toArray();
+
+            $arrayRatings = [];
+
+            if (!empty($ratingsDashboard))
+            {
+                for ($i=5; $i>=1; $i--)
+                {
+                    $arrayRatings[$i] = [
+                        "total" => 0,
+                        "sum" => 0,
+                        "ra_number" => 0
+                    ];
+
+                    foreach ($ratingsDashboard as $item)
+                    {
+                        if ($item['ra_number'] == $i)
+                        {
+                            $arrayRatings[$i] = $item;
+                            continue;
+                        }
+                    }
+                }
+            }
 
             $viewData = [
                 'productDetail' => $productDetail,
                 'cateProduct' => $cateProduct,
                 'ratings' => $ratings,
+                'arrayRatings' => $arrayRatings,
             ];
 
             return view('product.detail', $viewData);

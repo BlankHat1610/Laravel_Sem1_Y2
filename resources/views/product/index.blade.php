@@ -16,7 +16,9 @@
                                 <a href="/">Trang chủ</a>
                                 <span><i class="fa fa-angle-right"></i></span>
                             </li>
+                            @if(isset($cateProduct->c_name))
                             <li class="category3"><span>{{ $cateProduct->c_name }}</span></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -165,7 +167,7 @@
                             <div class="shop-toolbar btn-tlbr">
                                 <div class="col-xs-12 text-center">
                                     <div class="pages">
-                                        {!! $products->links() !!}
+                                        {!! $products->appends($query)->links() !!}
                                     </div>
                                 </div>
                             </div>

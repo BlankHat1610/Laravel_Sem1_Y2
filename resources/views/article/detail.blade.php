@@ -27,7 +27,7 @@
     <div class="main-contact-area">
         <div class="container">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-9">
                     <div class="article_content" style="margin-bottom: 30px;">
                         <h1>{{ $articleDetail->a_name }}</h1>
                         <p style="font-weight: 500; color: #3c3c3c">{{ $articleDetail->a_description }}</p>
@@ -39,7 +39,12 @@
                     <h4>Bài viết khác</h4>
                     @include('components.article')
                 </div>
-                <div class="col-sm-4">right</div>
+                <div class="col-sm-3">
+                    <h5>Bài viết nổi bật</h5>
+                    <div class="list_article_hot">
+                        @include('components.article_hot')
+                    </div>
+                </div>
             </div>
         </div>
     </div>

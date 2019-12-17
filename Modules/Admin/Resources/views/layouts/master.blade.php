@@ -47,18 +47,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('admin.home') }}">Project name</a>
+            <a class="navbar-brand" href="{{ route('admin.home') }}">Xin chào {{ get_data_user('admins','name') }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+{{--            <ul class="nav navbar-nav navbar-right">--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.home' ? 'active' : '' }}">--}}
+{{--                    <a href="{{ route('admin.home') }}">Trang Chu <span class="sr-only">(current)</span></a>--}}
+{{--                </li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.category' ? 'active' : '' }}"><a href="{{ route('admin.get.list.category') }}">Danh Muc</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.product' ? 'active' : '' }}"><a href="{{ route('admin.get.list.product') }}">San Pham</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.rating' ? 'active' : '' }}"><a href="{{ route('admin.get.list.rating') }}">Đanh gia</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.article' ? 'active' : '' }}"><a href="{{ route('admin.get.list.article') }}">Tin Tuc</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.transaction' ? 'active' : '' }}"><a href="{{ route('admin.get.list.transaction') }}">Don Hang</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.user' ? 'active' : '' }}"><a href="{{ route('admin.get.list.user') }}">Thanh Vien</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.contact' ? 'active' : '' }}"><a href="{{ route('admin.get.list.contact') }}">Lien He</a></li>--}}
+{{--                <li class="{{ \Request::route()->getName() == 'admin.get.list.page_static' ? 'active' : '' }}"><a href="{{ route('admin.get.list.page_static') }}">Trang tĩnh</a></li>--}}
+{{--            </ul>--}}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
+                <li></li>
+                <li><a href="{{ route('admin.logout') }}">Đăng xuất</a></li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
         </div>
     </div>
 </nav>

@@ -112,6 +112,11 @@ class ShoppingCartController extends FrontendController
                     'or_price' => $product->options->price_old,
                     'or_sale' => $product->options->sale,
                 ]);
+
+//                $product->pro_pay += 1;
+//                Product::insert([
+//                    'pro_pay' => $product->pro_pay += 1,
+//                ]);
             }
         }
 

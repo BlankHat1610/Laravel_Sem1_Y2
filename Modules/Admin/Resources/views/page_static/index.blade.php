@@ -7,8 +7,8 @@
         <li class="active">Bài viết</li>
     </ol>
 </div>
+<h2>Quản lí <a href="{{ route('admin.get.create.page_static') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
 <div class="table-responsive">
-    <h2>Quản lí <a href="{{ route('admin.get.create.page_static') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
     <table class="table table-striped">
         <thead>
             <tr>

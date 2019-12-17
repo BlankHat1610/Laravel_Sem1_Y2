@@ -17,8 +17,8 @@
         </form>
     </div>
 </div>
+<h2>Quản lí bài Viết <a href="{{ route('admin.get.create.article') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
 <div class="table-responsive">
-    <h2>Quản lí bài Viết <a href="{{ route('admin.get.create.article') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -27,6 +27,7 @@
                 <th style="width: 15%;">Tên bài viết</th>
                 <th style="width: 15%;">Hình ảnh</th>
                 <th style="width: 35%;">Mô tả</th>
+                <th>Nổi bật</th>
                 <th>Trạng Thái</th>
                 <th>Ngày viết</th>
                 <th>Thao Tác</th>
@@ -42,6 +43,9 @@
                             <img src="{{ pare_url_file($article->a_avatar) }}" alt="" class="img img-responsive" style="width: 100%;">
                         </td>
                         <td>{{ $article->a_description }}</td>
+                        <td>
+                            <a href="{{ route('admin.get.action.article',['hot', $article->id]) }}" class="label {{ $article->getHot($article->a_hot)['class'] }}">{{ $article->getHot($article->a_hot)['name'] }}</a>
+                        </td>
                         <td>
                             <a href="{{ route('admin.get.action.article',['active', $article->id]) }}" class="label {{ $article->getStatus($article->a_active)['class'] }}">{{ $article->getStatus($article->a_active)['name'] }}</a>
                         </td>

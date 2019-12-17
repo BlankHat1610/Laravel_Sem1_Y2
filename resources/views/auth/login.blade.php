@@ -36,11 +36,11 @@
                             </p>
                         </div>
                         <div class="form-action">
-                            <p class="lost_password"> <a href="#">Lost your password?</a></p>
+                            <p class="lost_password"> <a href="{{ route('get.reset.password') }}">Quên mật khẩu?</a></p>
                             <div class="actions-log">
-                                <input type="submit" class="button" name="login" value="Đăng nhập"">
+                                <input type="submit" class="button" name="login" value="Đăng nhập">
                             </div>
-                            <label for="rememberme" class="inline"> 
+                            <label for="rememberme" class="inline">
                             <input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember me </label>
                         </div>
                     </form>

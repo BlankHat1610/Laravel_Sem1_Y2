@@ -221,9 +221,9 @@
                                 <div class="search-icon fa fa-search"></div>
                                 <div class="product-search restrain">
                                     <div class="container nopadding-right">
-                                        <form action="index.html" id="searchform" method="get">
+                                        <form action="{{ route('get.product.list') }}" id="searchform" method="get">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" maxlength="128" placeholder="Search product...">
+                                                <input type="text" class="form-control" name="k" maxlength="128" placeholder="Search product...">
                                                 <span class="input-group-btn">
                                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                                 </span>
@@ -239,7 +239,7 @@
                                 <a href="#"><i class="fa fa-align-right"></i></a>
                                 <ul class="restrain language" style="width: 200px;">
                                     @if (\Auth::check())
-                                        <li><a href="login.html">Quản lí</a></li>
+                                        <li><a href="{{ route('user.dashboard') }}" title="Quản lý tổng quan">Quản lý</a></li>
                                         <li><a href="wishlist.html">Sản phẩm yêu thích</a></li>
                                         <li><a href="cart.html">Giỏ hàng</a></li>
                                         <li><a href="{{ route('get.logout.user') }}">Thoát</a></li>

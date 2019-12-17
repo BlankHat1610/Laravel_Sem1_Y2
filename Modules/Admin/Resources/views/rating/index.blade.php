@@ -7,8 +7,8 @@
             <li class="active">Danh sách</li>
         </ol>
     </div>
+    <h2>Quản lí đánh giá</h2>
     <div class="table-responsive">
-        <h2>Quản lí đánh giá</h2>
         <table class="table table-striped">
             <thead>
             <tr>

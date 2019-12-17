@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
 {
     public function index()
     {
-        $categories      =  Category::select('id', 'c_name', 'c_title_seo', 'c_active')->paginate(10);
+        $categories      =  Category::select('id', 'c_name', 'c_title_seo', 'c_active', 'c_home')->paginate(10);
         $viewData        =  [
             'categories' => $categories,
         ];
@@ -59,7 +59,7 @@ class AdminCategoryController extends Controller
             $category->c_icon            = str_slug($requestCategory->c_icon);
             $category->c_title_seo       = $requestCategory->c_title_seo ? $requestCategory->c_title_seo : $requestCategory->c_name;
             $category->c_description_seo = $requestCategory->c_description_seo;
-            
+
             $category->save();
         // } catch (\Throwable $th) {
         //     $code = 0;
@@ -78,6 +78,10 @@ class AdminCategoryController extends Controller
                     break;
                 case 'active':
                     $category->c_active = $category->c_active ? 0 : 1;
+                    $category->save();
+                    break;
+                case 'home':
+                    $category->c_home = $category->c_home ? 0 : 1;
                     $category->save();
                     break;
                 default:

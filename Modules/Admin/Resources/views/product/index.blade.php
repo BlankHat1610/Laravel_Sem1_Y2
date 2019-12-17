@@ -30,8 +30,8 @@
         </form>
     </div>
 </div>
+<h2>Quản lí sản phẩm <a href="{{ route('admin.get.create.product') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
 <div class="table-responsive">
-    <h2>Quản lí sản phẩm <a href="{{ route('admin.get.create.product') }}" class="pull-right"><i class="fas fa-plus-circle"></i></a></h2>
     <table class="table table-striped">
         <thead>
             <tr>

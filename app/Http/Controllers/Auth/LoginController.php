@@ -33,9 +33,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             return redirect()->route('home');
-        } else { 
+        } else {
             return redirect()->back();
         }
+
+        return redirect()->back()->with('danger','Đăng nhập thất bại!');
     }
 
     public function getLogout()

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\PageStatic;
+use App\Models\PageStatic;
 use Illuminate\Http\Request;
 
 class PageStaticController extends FrontendController

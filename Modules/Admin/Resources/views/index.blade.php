@@ -28,7 +28,8 @@
         </div>
         <div class="col-sm-8">
             <h2>Danh sách đơn hàng mới</h2>
-            <table class="table table-striped">
+            <div class="table-responsive">
+                <table class="table table-striped">
                 <thead>
                 <tr>
                 <tr>
@@ -61,6 +62,7 @@
                 @endif
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
     <div class="row">
