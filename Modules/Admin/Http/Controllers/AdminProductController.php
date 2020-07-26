@@ -28,7 +28,7 @@ class AdminProductController extends Controller
             $products->where('pro_category_id', $request->cate);
         }
 
-        $products = $products->orderByDesc('id')->paginate(10);
+        $products = $products->orderByDesc('id')->paginate(100);
 
         $categories = $this->getCategories();
 
@@ -122,6 +122,14 @@ class AdminProductController extends Controller
                 break;
             case 'hot':
                 $product->pro_hot = $product->pro_hot ? 0 : 1;
+                $product->save();
+                break;
+            case 'suggestion':
+                $product->pro_suggestion = $product->pro_suggestion ? 0 : 1;
+                $product->save();
+                break;
+            case 'new':
+                $product->pro_new = $product->pro_new ? 0 : 1;
                 $product->save();
                 break;
             default:

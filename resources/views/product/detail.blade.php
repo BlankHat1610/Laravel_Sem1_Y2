@@ -95,7 +95,7 @@
                             <div class="product-content">
                                 <h1 class="product-name"><a href="#">{{ $productDetail->pro_name }}</a></h1>
                                 <div class="rating-price">
-                                    <?
+                                    <?php
                                     $averageDe = 0;
 
                                     if ($productDetail->pro_total_rating)
@@ -124,7 +124,7 @@
                                             <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
                                         </div>
                                         <div class="add-to-cart">
-                                            <a href="#">Add to cart</a>
+                                            <a href="{{ route('add.shopping.cart',$productDetail->id) }}">Add to cart</a>
                                         </div>
                                         <div class="add-to-links">
                                             <div class="add-to-wishlist">

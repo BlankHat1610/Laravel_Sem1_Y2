@@ -42,13 +42,15 @@
                 <th>Hình ảnh</th>
                 <th>Trạng Thái</th>
                 <th>Nổi bật</th>
+                <th>Gợi ý</th>
+                <th>New</th>
                 <th>Thao Tác</th>
             </tr>
         </thead>
         <tbody>
             @if (isset($products))
                 @foreach ($products as $product)
-                    <?
+                    <?php
                     $average = 0;
 
                     if ($product->pro_total_rating)
@@ -77,13 +79,19 @@
                         </td>
                         <td>{{ isset($product->category->c_name) ? $product->category->c_name : '[N\A]' }}</td>
                         <td>
-                            <img src="{{ pare_url_file($product->pro_avatar) }}" alt="" class="img img-responsive" style="width: 120px;height: 120px;">
+                            <img src="{{ asset(pare_url_file($product->pro_avatar)) }}" alt="" class="img img-responsive" style="width: 120px;height: 120px;">
                         </td>
                         <td>
                             <a href="{{ route('admin.get.action.product',['active', $product->id]) }}" class="label {{ $product->getStatus($product->pro_active)['class'] }}">{{ $product->getStatus($product->c_active)['name'] }}</a>
                         </td>
                         <td>
                             <a href="{{ route('admin.get.action.product',['hot', $product->id]) }}" class="label {{ $product->getHot($product->pro_hot)['class'] }}">{{ $product->getHot($product->c_active)['name'] }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.get.action.product',['suggestion', $product->id]) }}" class="label {{ $product->getSuggestion($product->pro_suggestion)['class'] }}">{{ $product->getSuggestion($product->c_active)['name'] }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.get.action.product',['new', $product->id]) }}" class="label {{ $product->getNew($product->pro_new)['class'] }}">{{ $product->getNew($product->c_active)['name'] }}</a>
                         </td>
                         <td>
                             <a style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 12px;" href="{{ route('admin.get.edit.product',$product->id) }}"><i class="fas fa-edit"></i> Cập nhật</a>

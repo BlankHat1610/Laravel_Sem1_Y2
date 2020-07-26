@@ -51,7 +51,7 @@
                 </thead>
                 <tbody>
                 @if(isset($products))
-                    <? $i = 1; ?>
+                    <?php $i = 1; ?>
                     @foreach($products as $key => $product)
                         <tr>
                             <td>{{ $i }}</td>

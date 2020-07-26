@@ -111,12 +111,14 @@ class ShoppingCartController extends FrontendController
                     'or_qty' => $product->qty,
                     'or_price' => $product->options->price_old,
                     'or_sale' => $product->options->sale,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ]);
 
-//                $product->pro_pay += 1;
-//                Product::insert([
-//                    'pro_pay' => $product->pro_pay += 1,
-//                ]);
+                //                $product->pro_pay += 1;
+                //                Product::insert([
+                //                    'pro_pay' => $product->pro_pay += 1,
+                //                ]);
             }
         }
 

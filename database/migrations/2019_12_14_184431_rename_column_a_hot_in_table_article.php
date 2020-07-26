@@ -14,7 +14,7 @@ class RenameColumnAHotInTableArticle extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->renameColumn('c_hot', 'a_hot');
+            $table->renameColumn('c_home', 'a_hot');
         });
     }
 

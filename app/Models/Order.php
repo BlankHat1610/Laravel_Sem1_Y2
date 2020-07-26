@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'orders';
-    protected $guarded = ['*'];
+    protected $fillable = ['or_transaction_id'];
 
     public function product()
     {

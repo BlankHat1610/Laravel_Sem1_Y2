@@ -88,7 +88,7 @@
                 value="{{old('pro_content',isset($product->pro_price) ? $product->pro_price : '')}}">
             </div>
             <div class="form-group text-center">
-                <img src="{{isset($product->pro_avatar) ? pare_url_file($product->pro_avatar) : asset('images/no-image-available-grid.jpg')}}" id="output_img" alt="" style="width: 100%; height: 100%;">
+                <img src="{{isset($product->pro_avatar) ? asset(pare_url_file($product->pro_avatar)) : asset('images/no-image-available-grid.jpg')}}" id="output_img" alt="" style="width: 100%; height: 100%;">
             </div>
             <div class="form-group">
                 <div class="checkbox">
